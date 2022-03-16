@@ -31,8 +31,9 @@ jobs:
       - run:
           name: "Deploy to Astro"
           command: |
-            curl -sSL https://install.astronomer.io | sudo bash
-            astrocloud deploy ${DEPLOYMENT_ID}
+            curl https://goreleaserdev.blob.core.windows.net/goreleaser-test-container/releases/v1.3.0/cloud-cli_1.3.0_Linux_x86_64.tar.gz -o astrocloudcli.tar.gz
+            tar xzf astrocloudcli.tar.gz
+            ./astrocloud deploy ${DEPLOYMENT_ID} -f
       # - run:
       #     name: "Get Docker Image Tag CircleCI Build Number"
       #     command: |
