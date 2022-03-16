@@ -31,9 +31,9 @@ jobs:
       - run:
           name: "Deploy to Astro"
           command: |
-            curl https://goreleaserdev.blob.core.windows.net/goreleaser-test-container/releases/1.3.0/cloud-cli_1.3.0_Linux_x86_64.tar.gz -o astrocloudcli.tar.gz
-            tar xvf astrocloudcli.tar.gz
-            ./astrocloud deploy ${DEPLOYMENT_ID} -f
+            sh 'curl https://goreleaserdev.blob.core.windows.net/goreleaser-test-container/releases/1.3.0/cloud-cli_1.3.0_Linux_x86_64.tar.gz -o astrocloudcli.tar.gz'
+            sh 'tar xzf astrocloudcli.tar.gz'
+            sh './astrocloud deploy ${DEPLOYMENT_ID} -f'
       # - run:
       #     name: "Get Docker Image Tag CircleCI Build Number"
       #     command: |
